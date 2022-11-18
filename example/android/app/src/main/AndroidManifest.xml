@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.creoit.bluetooth.bluetoothcreoit_example">
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
    <application
         android:label="bluetoothcreoit_example"
         android:name="${applicationName}"

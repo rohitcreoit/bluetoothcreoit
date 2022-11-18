@@ -1,3 +1,4 @@
+import 'package:bluetoothcreoit/model/device.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'bluetoothcreoit_method_channel.dart';
@@ -26,4 +27,20 @@ abstract class BluetoothcreoitPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<bool?> requestEnable() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<bool?> requestDisable(){
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<List<BluetoothDevice>> getConnectedDevices(){
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+
+
+
 }

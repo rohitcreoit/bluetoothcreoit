@@ -1,17 +1,27 @@
+import 'package:bluetoothcreoit/model/device.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'bluetoothcreoit_platform_interface.dart';
 
-/// An implementation of [BluetoothcreoitPlatform] that uses method channels.
 class MethodChannelBluetoothcreoit extends BluetoothcreoitPlatform {
-  /// The method channel used to interact with the native platform.
   @visibleForTesting
   final methodChannel = const MethodChannel('bluetoothcreoit');
 
+  Future<bool?> get isEnabled async =>
+      await methodChannel.invokeMethod('isEnabled');
+
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<bool?> requestEnable() async =>
+      await methodChannel.invokeMethod('requestEnable');
+
+  @override
+  Future<bool?> requestDisable() async =>
+      await methodChannel.invokeMethod('requestDisable');
+
+  @override
+  Future<List<BluetoothDevice>> getConnectedDevices() async {
+    final List list = await (methodChannel.invokeMethod('getConnectedDevice'));
+    return list.map((map) => BluetoothDevice.fromMap(map)).toList();
   }
 }

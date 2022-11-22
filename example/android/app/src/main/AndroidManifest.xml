@@ -2,6 +2,8 @@
     package="com.creoit.bluetooth.bluetoothcreoit_example">
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
     <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
    <application
         android:label="bluetoothcreoit_example"
         android:name="${applicationName}"
